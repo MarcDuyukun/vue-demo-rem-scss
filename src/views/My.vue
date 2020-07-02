@@ -1,8 +1,8 @@
 <!--  -->
 <template>
-<div class="home">
-    home
-</div>
+  <div class="my">
+      my
+  </div>
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-.home{
+.my{
     width: 100%;
     height: 100%;
 }

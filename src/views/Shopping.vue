@@ -1,7 +1,7 @@
-<!--  -->
+=<!--  -->
 <template>
-<div class="home">
-    home
+<div class="shopping">
+    shopping
 </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-.home{
+.shopping{
     width: 100%;
     height: 100%;
 }

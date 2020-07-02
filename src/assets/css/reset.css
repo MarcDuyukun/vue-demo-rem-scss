@@ -54,5 +54,7 @@ html,body{
     /* 不指定fontsize为0的话图片见会有一个间距 */
     font-size: 0;
     /* 不允许选中文本 */
-    user-select: none;
+	user-select: none;
+	font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;
+
 }
