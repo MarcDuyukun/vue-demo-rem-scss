@@ -49,6 +49,9 @@ export default {
     onChangeItemBar (item, index) {
       this.selectItemIndex = index
       this.$emit('onChangeItemBar', item.componentName)
+    },
+    pushFragment (index) {
+      this.onChangeItemBar(this.toolBarData[index], index)
     }
   }
 }

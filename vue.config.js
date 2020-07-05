@@ -1,13 +1,29 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   css: {
     // 是否使用css分离插件
-    extract: true,
+    extract: false,
     // 是否开启错误定位
-    sourceMap: false,
+    sourceMap: true,
     // css预设置配置项
     loaderOptions: {
+      css: {
+        // 配置 CSS Modules 的class命名规则
+        modules: {
+          rules: [
+            {
+              test: /\.css$/,
+              use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                'sass-loader'
+              ]
+            }
+          ]
+        }
+      },
       sass: {
         // 注意：在 sass-loader v7 中，这个选项名是 "data"
         // 默认情况下 `sass` 选项会同时对 `sass` 和 `scss` 语法同时生效
@@ -40,8 +56,29 @@ module.exports = {
             '@imgs': path.resolve(__dirname, './src/assets/images'),
             '@c': path.resolve(__dirname, './src/components')
           }
-        }
-
+        },
+        devtool: 'source-map',
+        plugins: [
+          new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+            // 忽略加载顺序 否侧引入顺序不对回报警告
+            ignoreOrder: true
+          })
+        ]
+        // module: {
+        //   rules: [
+        //     {
+        //       test: /\.css$/,
+        //       use: [
+        //         MiniCssExtractPlugin.loader,
+        //         'css-loader'
+        //       ]
+        //     }
+        //   ]
+        // }
       }
     }
   }
